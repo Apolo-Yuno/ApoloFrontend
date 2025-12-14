@@ -9,12 +9,12 @@ export default defineConfig({
         open: true,
         proxy: {
             '/api/text': {
-                target: 'http://localhost:8080',
+                target: 'http://apolobackend-production.up.railway.app',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api\/text/, '')
             },
             '/api/audio': {
-                target: 'http://localhost:8080',
+                target: 'http://apolobackend-production.up.railway.app',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api\/audio/, '')
             }
