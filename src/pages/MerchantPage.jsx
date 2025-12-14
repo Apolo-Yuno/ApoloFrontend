@@ -1,5 +1,4 @@
 // MerchantPage - Main Page
-import React from 'react';
 import InteractionInput from '../components/timeline/InteractionInput';
 import InteractionFeed from '../components/timeline/InteractionFeed';
 import MerchantHeader from '../components/dashboard/MerchantHeader';
