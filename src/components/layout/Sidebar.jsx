@@ -33,32 +33,19 @@ const Sidebar = () => {
                     <div className="my-2 border-t border-[#2f2839]"></div>
 
                     <div className="px-3 my-2 hidden lg:block text-[10px] font-bold text-text-secondary uppercase tracking-wider">
-                        {isCRM ? 'CRM Tools' : 'Merchant Tools'}
+
                     </div>
 
-                    {isCRM ? (
-                        <>
-                            <NavItem to="/crm/overview" icon="dashboard" label="Overview" disabled />
-                            <NavItem to="/crm/accounts" icon="corporate_fare" label="Accounts" disabled />
-                            <NavItem to="/crm/tickets" icon="confirmation_number" label="Tickets" disabled />
-                        </>
-                    ) : (
-                        <>
-                            <NavItem to="/interactions" icon="forum" label="Interacciones" disabled active />
-                            <NavItem to="/config" icon="settings" label="Configuración" disabled />
-                            <NavItem to="/api" icon="api" label="API Keys" disabled />
-                        </>
-                    )}
+
 
                 </nav>
 
                 {/* FOOTER USER */}
                 <div className="p-4 border-t border-[#2f2839]">
                     <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
-                        <div className="size-8 rounded-full bg-gradient-to-tr from-primary to-purple-400"></div>
+
                         <div className="hidden lg:block overflow-hidden">
-                            <p className="text-sm font-bold text-white truncate">Admin User</p>
-                            <p className="text-xs text-text-secondary truncate">admin@yuno.com</p>
+
                         </div>
                     </div>
                 </div>

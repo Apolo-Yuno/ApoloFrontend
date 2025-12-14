@@ -11,7 +11,8 @@ const LifecycleProgress = ({ currentStage }) => {
 
 
     const getStepIndex = (stage) => {
-        const index = STEPS.findIndex(s => s.id === stage);
+        if (!stage) return 0;
+        const index = STEPS.findIndex(s => s.id.toUpperCase() === stage.toUpperCase());
         return index === -1 ? 0 : index;
     };
 
@@ -40,7 +41,7 @@ const LifecycleProgress = ({ currentStage }) => {
                     return (
                         <div key={step.id} className="flex flex-col items-center group cursor-default">
 
-                            {/* CÍRCULO / ÍCONO */}
+
                             <div className={`
                                 size-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 relative z-10
                                 ${isCompleted ? 'bg-primary border-primary text-white shadow-[0_0_15px_rgba(192,132,252,0.4)]' : ''}
