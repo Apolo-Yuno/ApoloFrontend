@@ -25,11 +25,11 @@ export const ingestAudio = async (file) => {
     try {
         const formData = new FormData();
         formData.append('file', file);
-        // formData.append('merchantName', 'Zoop'); // Si el back lo necesita en el futuro
+
 
         const response = await fetch(`${AUDIO_API_URL}/upload-audio`, {
             method: 'POST',
-            body: formData // Fetch pone el Content-Type multipart/form-data automáticamente
+            body: formData
         });
 
         if (!response.ok) {

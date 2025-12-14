@@ -17,7 +17,7 @@ const MerchantHeader = () => {
                         <span className="material-symbols-outlined text-lg">verified</span>
                         <span className="text-xs font-bold uppercase tracking-wider">Live Merchant Profile</span>
                     </div>
-                    <h1 className="text-4xl lg:text-5xl font-bold text-white tracking-tight">{merchant.name}</h1>
+                    <h1 className="text-4xl lg:text-5xl font-bold text-black tracking-tight">{merchant.name}</h1>
                     <div className="flex items-center gap-3 mt-3 text-sm text-text-secondary">
                         <span className="bg-surface-light px-2 py-1 rounded border border-border-dark">ID: {merchant.id}</span>
                         <span>•</span>
