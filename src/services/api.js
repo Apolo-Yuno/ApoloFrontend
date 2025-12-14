@@ -1,4 +1,3 @@
-//Conexion Con el back (Proxy Configurado en vite.config.js)
 const API_URL = '/api/text/merchant';
 const AUDIO_API_URL = '/api/audio/merchant';
 
