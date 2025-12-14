@@ -4,7 +4,8 @@ import Sidebar from '../components/layout/Sidebar';
 import {
     SegmentationCard, StakeholdersCard,
     TrendsCard, InteractionTable,
-    SentimentCard, TechnicalHealthCard
+    SentimentCard, TechnicalHealthCard,
+    RevenuePieCard
 } from '../components/crm/CRMWidgets';
 
 const CRMPage = () => {
@@ -34,6 +35,7 @@ const CRMPage = () => {
 
                         {/* COLUMNA 3: Estado y Acciones */}
                         <div className="xl:col-span-3 flex flex-col gap-6">
+                            <RevenuePieCard />
                             <SentimentCard />
                             <TechnicalHealthCard />
                         </div>
