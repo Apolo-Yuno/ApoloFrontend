@@ -9,9 +9,9 @@ export const MerchantProvider = ({ children }) => {
 
     // Estado inicial visual (Placeholder mientras carga o se crea)
     const [merchant, setMerchant] = useState({
-        name: 'Yuno',
+        name: 'Zoop',
         id: 'MER-8821-XYS',
-        stage: 'PROSPECT',
+        stage: 'SALES',
         summary: 'Esperando primera interacción para generar contexto...',
         context: {
             countries: [],
@@ -31,7 +31,7 @@ export const MerchantProvider = ({ children }) => {
         const newInteraction = {
             author: 'Tú',
             role: 'Vendedor',
-            timestamp: 'Ahora',
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             content: text,
             type: 'USER',
             sourceType: type
@@ -40,25 +40,26 @@ export const MerchantProvider = ({ children }) => {
 
         try {
             // Llamada real al backend
-            const updatedMerchant = await ingestText('Yuno', text, type);
+            const updatedMerchant = await ingestText(text, type, merchant.name);
 
 
             setMerchant(prev => ({
                 ...prev,
+                id: updatedMerchant.id || prev.id,
                 name: updatedMerchant.name || prev.name,
-                stage: updatedMerchant.stage,
-                summary: updatedMerchant.context?.lastSummary || prev.summary,
-                context: updatedMerchant.context || prev.context,
+                stage: updatedMerchant.lifeCicleState || prev.stage,
+                summary: updatedMerchant.merchantContext?.lastSummary || prev.summary,
+                context: updatedMerchant.merchantContext || prev.context,
                 lastUpdate: 'Hace unos segundos'
             }));
 
             // Si el backend devolviera una respuesta del sistema (feedback de IA)
-            if (updatedMerchant.context?.lastSummary) {
+            if (updatedMerchant.merchantContext?.lastSummary) {
                 setHistory(prev => [{
-                    author: 'Sistema',
+                    author: 'ApoloBot',
                     role: 'IA Brain',
                     timestamp: 'Ahora',
-                    content: `Contexto actualizado: ${updatedMerchant.context.lastSummary}`,
+                    content: `Contexto actualizado: ${updatedMerchant.merchantContext.lastSummary}`,
                     type: 'SYSTEM'
                 }, ...prev]);
             }
