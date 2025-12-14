@@ -21,7 +21,7 @@ const MerchantPage = () => {
                 {/* COLUMNA IZQUIERDA (Input + Chat) */}
                 <div className="w-full md:w-[45%] lg:w-[40%] xl:w-[380px] 2xl:w-[450px] bg-background-dark border-r border-border-dark flex flex-col z-10 shadow-xl relative">
                     <div className="p-6 pb-4 bg-surface-dark border-b border-border-dark z-20">
-                        <h2 className="text-xl font-bold flex items-center gap-2 mb-1 text-text-primary">
+                        <h2 className="text-xl font-bold flex items-center gap-2 mb-1 text-black">
                             <span className="material-symbols-outlined text-primary">forum</span>
                             Interaction Wall
                         </h2>

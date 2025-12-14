@@ -133,7 +133,7 @@ const InteractionInput = () => {
                 )}
 
                 <textarea
-                    className="w-full h-24 bg-surface-dark border border-border-dark rounded-xl p-3 text-sm text-white placeholder-text-secondary focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none outline-none"
+                    className="w-full h-24 bg-surface-dark border border-border-dark rounded-xl p-3 text-sm text-black placeholder-text-secondary focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none outline-none"
                     placeholder="Type context or use simulation button..."
                     value={text}
                     onChange={(e) => setText(e.target.value)}

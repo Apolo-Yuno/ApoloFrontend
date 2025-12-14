@@ -7,11 +7,11 @@ const TimelineCard = ({ data, isLast }) => {
     // CONFIGURACIÓN VISUAL SEGÚN EL TIPO DE INTERACCIÓN
     // Esto es clave para el "Timeline Unificado"
     const typeConfig = {
-        'CALL': { icon: 'call', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
-        'EMAIL': { icon: 'mail', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
-        'CONTRACT': { icon: 'description', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
-        'NOTE': { icon: 'edit_note', color: 'text-gray-400', bg: 'bg-gray-500/10', border: 'border-gray-500/20' },
-        'SYSTEM': { icon: 'smart_toy', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' }
+        'CALL': { icon: 'call', color: 'text-orange-600', bg: 'bg-orange-600/10', border: 'border-orange-600/20' },
+        'EMAIL': { icon: 'mail', color: 'text-blue-600', bg: 'bg-blue-600/10', border: 'border-blue-600/20' },
+        'CONTRACT': { icon: 'description', color: 'text-purple-600', bg: 'bg-purple-600/10', border: 'border-purple-600/20' },
+        'NOTE': { icon: 'edit_note', color: 'text-gray-600', bg: 'bg-gray-600/10', border: 'border-gray-600/20' },
+        'SYSTEM': { icon: 'smart_toy', color: 'text-emerald-600', bg: 'bg-emerald-600/10', border: 'border-emerald-600/20' }
     };
 
 
@@ -26,7 +26,7 @@ const TimelineCard = ({ data, isLast }) => {
 
 
             <div className="shrink-0 relative z-10">
-                <div className={`size-10 rounded-full flex items-center justify-center ring-2 ring-[#150f1f] shadow-lg transition-all ${config.bg} ${config.border} border`}>
+                <div className={`size-10 rounded-full flex items-center justify-center ring-2 ring-white shadow-lg transition-all ${config.bg} ${config.border} border`}>
                     <span className={`material-symbols-outlined text-[18px] ${config.color}`}>
                         {config.icon}
                     </span>
@@ -37,7 +37,7 @@ const TimelineCard = ({ data, isLast }) => {
             <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-baseline mb-1">
                     <div className="flex items-center gap-2">
-                        <span className="font-bold text-sm text-white truncate">{author}</span>
+                        <span className="font-bold text-sm text-text-primary truncate">{author}</span>
                         <span className="text-[10px] text-text-secondary border border-border-dark px-1.5 rounded bg-surface-dark/50 hidden sm:inline-block">
                             {role || 'User'}
                         </span>
@@ -53,7 +53,7 @@ const TimelineCard = ({ data, isLast }) => {
 
                     {isSystem && <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500 rounded-l-xl"></div>}
 
-                    <p className={`text-gray-300 ${isSystem ? 'pl-2' : ''}`}>
+                    <p className={`text-text-secondary ${isSystem ? 'pl-2' : ''}`}>
                         {content}
                     </p>
 
