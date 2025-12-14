@@ -1,11 +1,15 @@
-// MerchantPage - Main Page
+// src/pages/MerchantPage.jsx
+import React from 'react';
 import InteractionInput from '../components/timeline/InteractionInput';
 import InteractionFeed from '../components/timeline/InteractionFeed';
 import MerchantHeader from '../components/dashboard/MerchantHeader';
 import SmartSummary from '../components/dashboard/SmartSummary';
 import ConfigMap from '../components/dashboard/ConfigMap';
-import StatsCard from '../components/dashboard/StatsCard';
 import Sidebar from '../components/layout/Sidebar';
+
+// 1. CAMBIO AQUÍ: Importamos la nueva tarjeta de acciones en lugar de StatsCard
+import MerchantActionsCard from '../components/dashboard/MerchantActionsCard';
+// import StatsCard from '../components/dashboard/StatsCard'; // Ya no lo usamos
 
 const MerchantPage = () => {
     return (
@@ -33,11 +37,23 @@ const MerchantPage = () => {
                     <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
 
                     <div className="max-w-6xl mx-auto space-y-8 relative z-10">
+
+                        {/* Header con la Barra de Progreso (Lifecycle) */}
                         <MerchantHeader />
+
+                        {/* Resumen generado por IA */}
                         <SmartSummary />
+
+                        {/* Grid Inferior */}
                         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+                            {/* Mapa de Configuración (Izquierda) */}
                             <ConfigMap />
-                            <StatsCard />
+
+                            {/* 2. CAMBIO AQUÍ: Tarjeta de Acciones (Derecha) */}
+                            {/* Reemplaza a StatsCard */}
+                            <MerchantActionsCard />
+
                         </div>
                     </div>
                 </div>
