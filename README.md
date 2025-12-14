@@ -2,9 +2,13 @@
 
 A modern, high-performance Merchant Dashboard and CRM application built for Yuno. This application allows efficient management of merchant profiles, interaction tracking, and CRM analytics.
 
-<div align="center">
-  <img src="/vite.svg" alt="Apolo Logo" width="100" />
-</div>
+
+## 👥 Team
+
+* **Juan Sebastian Puentes Julio**
+* **Tulio Riaño Sánchez**
+* **Daniel Patiño Mejia**
+* **Isaac David Burgos Cervantes**
 
 ## 🚀 Key Features
 
