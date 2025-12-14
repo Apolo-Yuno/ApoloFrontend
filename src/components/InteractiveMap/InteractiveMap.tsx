@@ -5,7 +5,6 @@ const containerStyle = {
   height: '100%'
 };
 
-
 interface Location {
   lat: number;
   lng: number;
@@ -57,7 +56,7 @@ export default function InteractiveMap({ locations = [] }: MapProps) {
     
     return (
     <div className="p-3 rounded-lg mb-2">
-      <div className="relative w-full h-[200px] rounded-lg overflow-hidden">
+      <div className="relative w-full h-[230px] rounded-lg overflow-hidden">
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={locations[0] || {lat: 0, lng: 0}}
