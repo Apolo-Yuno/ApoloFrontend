@@ -24,8 +24,7 @@ const InteractionFeed = () => {
 
     return (
         <div className="flex-1 overflow-y-auto p-4 space-y-6 custom-scrollbar">
-            {/* Renderizado Inverso: Lo más nuevo arriba o abajo según prefieras. 
-                Aquí asumimos orden cronológico (nuevo abajo) para chat style */}
+
 
             {[...history].reverse().map((interaction, index) => (
                 <TimelineCard

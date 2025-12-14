@@ -17,7 +17,7 @@ const ConfigMap = () => {
     const mapLocations = useMemo(() => {
         return countries
             .map(code => COUNTRY_DATA[code])
-            .filter(Boolean); 
+            .filter(Boolean);
     }, [countries]);
 
     return (
@@ -41,7 +41,7 @@ const ConfigMap = () => {
 
             <div className="flex flex-wrap gap-4 pt-2">
                 {countries.length > 0 ? countries.map(country => (
-                   <div key={country} 
+                    <div key={country}
                         className="flex items-center gap-2 bg-surface-light px-3 py-1.5 rounded-lg border border-border-dark animate-fade-in 
                         hover:bg-purple-500 hover:scale-105 transition-all duration-200 cursor-pointer"
                     >

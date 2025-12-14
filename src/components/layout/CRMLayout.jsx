@@ -26,7 +26,6 @@ export const CRMHeader = () => (
                         </div>
                     </div>
                 </div>
-
                 {/* Stats Header */}
                 <div className="flex items-center divide-x divide-[#2f2839] bg-surface-dark/30 rounded-lg border border-[#2f2839]">
                     <StatBox label="Health Score" value="92" subValue="2%" subColor="text-green-400" icon="arrow_upward" />

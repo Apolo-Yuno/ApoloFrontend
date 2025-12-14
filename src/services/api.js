@@ -1,5 +1,6 @@
-//Conexion Con el back
-const API_URL = 'http://localhost:8081/merchant';
+//Conexion Con el back (Proxy Configurado en vite.config.js)
+const API_URL = '/api/text/merchant';
+const AUDIO_API_URL = '/api/audio/merchant';
 
 export const ingestText = async (text, type, merchantName) => {
     try {
@@ -16,6 +17,28 @@ export const ingestText = async (text, type, merchantName) => {
         return await response.json();
     } catch (error) {
         console.error(error);
+        throw error;
+    }
+};
+
+export const ingestAudio = async (file) => {
+    try {
+        const formData = new FormData();
+        formData.append('file', file);
+        // formData.append('merchantName', 'Zoop'); // Si el back lo necesita en el futuro
+
+        const response = await fetch(`${AUDIO_API_URL}/upload-audio`, {
+            method: 'POST',
+            body: formData // Fetch pone el Content-Type multipart/form-data automáticamente
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Error subiendo audio: ${errorText}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Error en ingestAudio:", error);
         throw error;
     }
 };

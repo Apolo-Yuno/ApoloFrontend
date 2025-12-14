@@ -43,7 +43,6 @@ const Sidebar = () => {
                 {/* FOOTER USER */}
                 <div className="p-4 border-t border-[#2f2839]">
                     <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
-
                         <div className="hidden lg:block overflow-hidden">
 
                         </div>

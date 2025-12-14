@@ -14,18 +14,17 @@ const TimelineCard = ({ data, isLast }) => {
         'SYSTEM': { icon: 'smart_toy', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' }
     };
 
-    // Determinar configuración actual (fallback a NOTE si no existe)
-    // Si es SYSTEM, forzamos la config de sistema, sino usamos el sourceType
+
     const config = isSystem ? typeConfig['SYSTEM'] : (typeConfig[sourceType] || typeConfig['NOTE']);
 
     return (
         <div className="flex gap-4 relative group">
-            {/* LÍNEA CONECTORA VERTICAL (El "Hilo" del tiempo) */}
+
             {!isLast && (
                 <div className="absolute left-[19px] top-10 bottom-[-24px] w-[2px] bg-border-dark group-last:hidden"></div>
             )}
 
-            {/* ÍCONO INDICADOR (Burbuja izquierda) */}
+
             <div className="shrink-0 relative z-10">
                 <div className={`size-10 rounded-full flex items-center justify-center ring-2 ring-[#150f1f] shadow-lg transition-all ${config.bg} ${config.border} border`}>
                     <span className={`material-symbols-outlined text-[18px] ${config.color}`}>
@@ -48,17 +47,17 @@ const TimelineCard = ({ data, isLast }) => {
                     </span>
                 </div>
 
-                {/* BURBUJA DE TEXTO */}
+
                 <div className={`relative p-3 rounded-r-xl rounded-bl-xl text-sm shadow-sm leading-relaxed border bg-surface-dark ${isSystem ? 'border-emerald-500/30' : 'border-border-dark'}`}>
 
-                    {/* Decoración para mensajes del sistema */}
+
                     {isSystem && <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500 rounded-l-xl"></div>}
 
                     <p className={`text-gray-300 ${isSystem ? 'pl-2' : ''}`}>
                         {content}
                     </p>
 
-                    {/* Etiqueta del tipo (opcional, ayuda al contexto) */}
+
                     {!isSystem && (
                         <div className="mt-2 flex items-center gap-1">
                             <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${config.bg} ${config.color} uppercase tracking-wider`}>

@@ -6,15 +6,15 @@ import { INTERACTION_TYPES } from '../../constants/interactionTypes';
 const InteractionInput = () => {
     const [text, setText] = useState('');
     const [type, setType] = useState(INTERACTION_TYPES.NOTE.value);
-    const [file, setFile] = useState(null); // Nuevo estado para el archivo
+    const [file, setFile] = useState(null);
     const { handleIngest, loading } = useMerchant();
 
     const handleSubmit = (e) => {
         if (e) e.preventDefault();
 
-        // Si hay archivo, simulamos el envío de audio
+        // Si hay archivo, enviamos el audio real
         if (type === INTERACTION_TYPES.CALL.value && file) {
-            handleIngest(`[AUDIO UPLOAD] ${file.name} - (Simulación de transcripción automática...)`, type);
+            handleIngest(file, type);
             setText('');
             setFile(null);
             return;
@@ -47,7 +47,7 @@ const InteractionInput = () => {
                         value={type}
                         onChange={(e) => {
                             setType(e.target.value);
-                            setFile(null); // Resetear archivo al cambiar tipo
+                            setFile(null);
                         }}
                         className="bg-surface-dark border border-border-dark rounded-lg text-xs text-text-secondary py-1 px-2 focus:ring-primary focus:border-primary"
                     >
@@ -59,7 +59,7 @@ const InteractionInput = () => {
                     </select>
                 </div>
 
-                {/* VISUALIZACIÓN CONDICIONAL: Si es AUDIO (CALL) mostramos input de archivo */}
+
                 {type === INTERACTION_TYPES.CALL.value ? (
                     <div className="w-full h-24 bg-surface-dark border border-dashed border-border-dark rounded-xl p-3 flex flex-col items-center justify-center text-text-secondary hover:bg-surface-light/5 transition-colors relative cursor-pointer group">
                         <input

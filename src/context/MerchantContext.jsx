@@ -1,6 +1,6 @@
 // MerchantContext - Global State Management
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { ingestText, getMerchantData } from '../services/api';
+import { ingestText, getMerchantData, ingestAudio } from '../services/api';
 
 const MerchantContext = createContext();
 
@@ -25,22 +25,30 @@ export const MerchantProvider = ({ children }) => {
     // Historial simulado inicial (puedes vaciarlo si prefieres)
     const [history, setHistory] = useState([]);
 
-    const handleIngest = async (text, type) => {
+    const handleIngest = async (content, type) => {
         setLoading(true);
         // Agregar optimísticamente al historial (Feedback instantáneo)
+        const isFile = content instanceof File;
+        const displayContent = isFile ? `[Audio Subido] ${content.name}` : content;
+
         const newInteraction = {
             author: 'Tú',
             role: 'Vendedor',
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            content: text,
+            content: displayContent,
             type: 'USER',
             sourceType: type
         };
         setHistory(prev => [newInteraction, ...prev]);
 
         try {
+            let updatedMerchant;
             // Llamada real al backend
-            const updatedMerchant = await ingestText(text, type, merchant.name);
+            if (isFile) {
+                updatedMerchant = await ingestAudio(content);
+            } else {
+                updatedMerchant = await ingestText(content, type, merchant.name);
+            }
 
             if (!updatedMerchant) throw new Error("Respuesta inválida del servidor");
 
@@ -49,7 +57,9 @@ export const MerchantProvider = ({ children }) => {
                 id: updatedMerchant.id || prev.id,
                 name: updatedMerchant.name || prev.name,
                 stage: updatedMerchant.lifeCicleState || prev.stage,
-                summary: updatedMerchant.merchantContext?.lastSummary || prev.summary,
+                summary: (prev.summary && !prev.summary.startsWith('Esperando') && updatedMerchant.merchantContext?.lastSummary)
+                    ? `${prev.summary}\n\n• ${updatedMerchant.merchantContext.lastSummary}`
+                    : (updatedMerchant.merchantContext?.lastSummary || prev.summary),
                 context: updatedMerchant.merchantContext || prev.context,
                 lastUpdate: 'Hace unos segundos'
             }));
@@ -69,11 +79,11 @@ export const MerchantProvider = ({ children }) => {
             console.error("Error conectando con IA", error);
             // Feedback visual de error
             setHistory(prev => [{
-                author: 'Sistema',
+                author: 'ApoloBot',
                 role: 'Error',
                 timestamp: 'Ahora',
                 content: `Error al procesar la solicitud: ${error.message}. Intenta con un texto más corto.`,
-                type: 'SYSTEM', // Usamos SYSTEM para que se vea diferente, o podrías crear un tipo ERROR
+                type: 'SYSTEM',
                 sourceType: 'NOTE'
             }, ...prev]);
         } finally {
