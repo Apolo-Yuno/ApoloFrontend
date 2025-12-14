@@ -12,14 +12,14 @@ export const MerchantProvider = ({ children }) => {
         name: 'Zoop',
         id: 'MER-8821-XYS',
         stage: 'SALES',
-        summary: 'Esperando primera interacción para generar contexto...',
+        summary: 'Waiting for first interaction to generate context...',
         context: {
             countries: [],
             providers: [],
             paymentMethods: [],
             riskNotes: ''
         },
-        lastUpdate: 'Hace un momento'
+        lastUpdate: 'A moment ago'
     });
 
     // Historial simulado inicial (puedes vaciarlo si prefieres)
@@ -29,11 +29,11 @@ export const MerchantProvider = ({ children }) => {
         setLoading(true);
         // Agregar optimísticamente al historial (Feedback instantáneo)
         const isFile = content instanceof File;
-        const displayContent = isFile ? `[Audio Subido] ${content.name}` : content;
+        const displayContent = isFile ? `[Audio Uploaded] ${content.name}` : content;
 
         const newInteraction = {
             author: 'Tú',
-            role: 'Vendedor',
+            role: 'Sales',
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             content: displayContent,
             type: 'USER',
@@ -50,18 +50,18 @@ export const MerchantProvider = ({ children }) => {
                 updatedMerchant = await ingestText(content, type, merchant.name);
             }
 
-            if (!updatedMerchant) throw new Error("Respuesta inválida del servidor");
+            if (!updatedMerchant) throw new Error("Invalid server response");
 
             setMerchant(prev => ({
                 ...prev,
                 id: updatedMerchant.id || prev.id,
                 name: updatedMerchant.name || prev.name,
                 stage: updatedMerchant.lifeCicleState || prev.stage,
-                summary: (prev.summary && !prev.summary.startsWith('Esperando') && updatedMerchant.merchantContext?.lastSummary)
+                summary: (prev.summary && !prev.summary.startsWith('Waiting') && updatedMerchant.merchantContext?.lastSummary)
                     ? `${prev.summary}\n\n• ${updatedMerchant.merchantContext.lastSummary}`
                     : (updatedMerchant.merchantContext?.lastSummary || prev.summary),
                 context: updatedMerchant.merchantContext || prev.context,
-                lastUpdate: 'Hace unos segundos'
+                lastUpdate: 'A few seconds ago'
             }));
 
             // Si el backend devolviera una respuesta del sistema (feedback de IA)
@@ -70,7 +70,7 @@ export const MerchantProvider = ({ children }) => {
                     author: 'ApoloBot',
                     role: 'IA Brain',
                     timestamp: 'Ahora',
-                    content: `Contexto actualizado: ${updatedMerchant.merchantContext.lastSummary}`,
+                    content: `Context updated: ${updatedMerchant.merchantContext.lastSummary}`,
                     type: 'SYSTEM'
                 }, ...prev]);
             }
@@ -82,7 +82,7 @@ export const MerchantProvider = ({ children }) => {
                 author: 'ApoloBot',
                 role: 'Error',
                 timestamp: 'Ahora',
-                content: `Error al procesar la solicitud: ${error.message}. Intenta con un texto más corto.`,
+                content: `Error processing request: ${error.message}. Try with a shorter text.`,
                 type: 'SYSTEM',
                 sourceType: 'NOTE'
             }, ...prev]);

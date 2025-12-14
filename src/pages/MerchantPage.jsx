@@ -23,9 +23,9 @@ const MerchantPage = () => {
                     <div className="p-6 pb-4 bg-surface-dark border-b border-border-dark z-20">
                         <h2 className="text-xl font-bold flex items-center gap-2 mb-1 text-white">
                             <span className="material-symbols-outlined text-primary">forum</span>
-                            Muro de Interacciones
+                            Interaction Wall
                         </h2>
-                        <p className="text-text-secondary text-xs">Historial cronológico de comunicaciones.</p>
+                        <p className="text-text-secondary text-xs">Chronological communication history.</p>
                     </div>
 
                     <InteractionInput />

@@ -29,7 +29,7 @@ const InteractionInput = () => {
             handleIngest(file, 'CALL');
         } catch (error) {
             console.error("Error en simulación:", error);
-            alert("Error: Revisa que 'demoAudio.mp3' esté en la carpeta public y tenga ese nombre exacto.");
+            alert("Error: Check that 'demoAudio.mp3' is in the public folder and has that exact name.");
         } finally {
             setIsSimulating(false);
         }
@@ -76,9 +76,9 @@ const InteractionInput = () => {
                     className="bg-surface-dark border border-border-dark rounded-lg text-xs text-text-secondary py-1.5 px-2 focus:ring-primary focus:border-primary outline-none"
                 >
                     <option value="NOTE">📝 Slack</option>
-                    <option value="EMAIL">📧 Correo</option>
+                    <option value="EMAIL">📧 Email</option>
                     <option value="CALL">🎙️ Audio</option>
-                    <option value="CONTRACT">📄 Contrato</option>
+                    <option value="CONTRACT">📄 Contract</option>
 
                 </select>
 
@@ -95,7 +95,7 @@ const InteractionInput = () => {
                     <span className={`material-symbols-outlined text-sm ${isSimulating ? 'animate-spin' : ''}`}>
                         {isSimulating ? 'progress_activity' : 'wifi_tethering'}
                     </span>
-                    {isSimulating ? 'Recibiendo...' : 'Simular Webhook'}
+                    {isSimulating ? 'Receiving...' : 'Simulate Webhook'}
                 </button>
             </div>
 
@@ -126,7 +126,7 @@ const InteractionInput = () => {
                                     <span className="truncate max-w-[150px]">{audioFile.name}</span>
                                 </>
                             ) : (
-                                <span className="text-text-secondary italic">Esperando audio...</span>
+                                <span className="text-text-secondary italic">Waiting for audio...</span>
                             )}
                         </div>
                     </div>
@@ -134,7 +134,7 @@ const InteractionInput = () => {
 
                 <textarea
                     className="w-full h-24 bg-surface-dark border border-border-dark rounded-xl p-3 text-sm text-white placeholder-text-secondary focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none outline-none"
-                    placeholder="Escribe el contexto o usa el botón de simulación..."
+                    placeholder="Type context or use simulation button..."
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 ></textarea>

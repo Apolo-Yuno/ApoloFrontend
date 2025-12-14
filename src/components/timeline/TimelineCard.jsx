@@ -61,7 +61,7 @@ const TimelineCard = ({ data, isLast }) => {
                     {!isSystem && (
                         <div className="mt-2 flex items-center gap-1">
                             <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${config.bg} ${config.color} uppercase tracking-wider`}>
-                                {sourceType || 'NOTA'}
+                                {sourceType || 'NOTE'}
                             </span>
                         </div>
                     )}

@@ -3,9 +3,9 @@ import React from 'react';
 const LifecycleProgress = ({ currentStage }) => {
     // 1. Definimos los pasos en orden lógico
     const STEPS = [
-        { id: 'SALES', label: 'Ventas', icon: 'sell' },
-        { id: 'CONTRACT', label: 'Firma', icon: 'history_edu' }, // history_edu es como una firma/contrato
-        { id: 'INTEGRATION', label: 'Integración', icon: 'build' },
+        { id: 'SALES', label: 'Sales', icon: 'sell' },
+        { id: 'CONTRACT', label: 'Signature', icon: 'history_edu' },
+        { id: 'INTEGRATION', label: 'Integration', icon: 'build' },
         { id: 'LIVE', label: 'Go-Live', icon: 'rocket_launch' }
     ];
 

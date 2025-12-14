@@ -23,9 +23,9 @@ const SmartSummary = () => {
                         <span className="material-symbols-outlined icon-filled">auto_awesome</span>
                     </div>
                     <div>
-                        <h3 className="text-lg font-bold text-white mb-2">Resumen Inteligente</h3>
+                        <h3 className="text-lg font-bold text-white mb-2">Smart Summary</h3>
                         <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                            {merchant?.summary || "No hay resumen disponible aún."}
+                            {merchant?.summary || "No summary available yet."}
                         </p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const SmartSummary = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 pl-14">
                         {countries.length > 0 && (
                             <div className="bg-surface-light/5 rounded-lg p-3">
-                                <h4 className="text-xs font-bold text-text-secondary uppercase mb-2">Mercados</h4>
+                                <h4 className="text-xs font-bold text-text-secondary uppercase mb-2">Markets</h4>
                                 <div className="flex flex-wrap gap-2">
                                     {countries.map(c => (
                                         <span key={c} className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs border border-blue-500/30">
@@ -48,7 +48,7 @@ const SmartSummary = () => {
 
                         {paymentMethods.length > 0 && (
                             <div className="bg-surface-light/5 rounded-lg p-3">
-                                <h4 className="text-xs font-bold text-text-secondary uppercase mb-2">Métodos de Pago</h4>
+                                <h4 className="text-xs font-bold text-text-secondary uppercase mb-2">Payment Methods</h4>
                                 <div className="flex flex-wrap gap-2">
                                     {paymentMethods.map(pm => (
                                         <span key={pm} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-xs border border-purple-500/30">
@@ -65,7 +65,7 @@ const SmartSummary = () => {
                 {riskNotes && (
                     <div className="ml-14 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
                         <h4 className="text-xs font-bold text-red-400 uppercase mb-1 flex items-center gap-1">
-                            <span className="material-symbols-outlined text-sm">warning</span> Alerta de Riesgo
+                            <span className="material-symbols-outlined text-sm">warning</span> Risk Alert
                         </h4>
                         <p className="text-xs text-red-200">{riskNotes}</p>
                     </div>

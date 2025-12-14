@@ -25,7 +25,7 @@ const ConfigMap = () => {
             <div className="flex justify-between items-center">
                 <h3 className="font-bold text-lg text-white flex items-center gap-2">
                     <span className="material-symbols-outlined text-text-secondary">public</span>
-                    Mapa de Configuración
+                    Map Configuration
                 </h3>
             </div>
 

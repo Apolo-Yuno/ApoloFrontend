@@ -60,14 +60,14 @@ const MerchantActionsCard = () => {
                     <span className="material-symbols-outlined text-text-secondary">smart_button</span>
                 </div>
                 <div>
-                    <h3 className="text-white text-lg font-bold leading-tight">Acciones Clave <br /> </h3>
+                    <h3 className="text-white text-lg font-bold leading-tight">Key Actions<br /> </h3>
                 </div>
             </div>
 
             {/* SECCIÓN 1: DESCARGA */}
             <div className="mb-6">
                 <h4 className="text-[10px] text-text-secondary uppercase font-bold tracking-wider mb-3">
-                    Descarga de Documentos
+                    Donwload documents
                 </h4>
                 <button
                     onClick={generatePDF}

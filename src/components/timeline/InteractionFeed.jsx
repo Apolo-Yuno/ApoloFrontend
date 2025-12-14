@@ -17,7 +17,7 @@ const InteractionFeed = () => {
         return (
             <div className="flex flex-col items-center justify-center h-48 text-text-secondary opacity-50">
                 <span className="material-symbols-outlined text-4xl mb-2">history_edu</span>
-                <span className="text-sm">El historial está vacío</span>
+                <span className="text-sm">History is empty</span>
             </div>
         );
     }

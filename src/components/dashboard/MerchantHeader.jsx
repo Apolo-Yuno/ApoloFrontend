@@ -15,7 +15,7 @@ const MerchantHeader = () => {
                 <div>
                     <div className="flex items-center gap-2 mb-2 text-primary">
                         <span className="material-symbols-outlined text-lg">verified</span>
-                        <span className="text-xs font-bold uppercase tracking-wider">Ficha Viva del Merchant</span>
+                        <span className="text-xs font-bold uppercase tracking-wider">Live Merchant Profile</span>
                     </div>
                     <h1 className="text-4xl lg:text-5xl font-bold text-white tracking-tight">{merchant.name}</h1>
                     <div className="flex items-center gap-3 mt-3 text-sm text-text-secondary">
@@ -31,10 +31,10 @@ const MerchantHeader = () => {
                 {/* BOTONES DE ACCIÓN */}
                 <div className="flex items-center gap-3">
                     <button className="px-4 py-2 rounded-lg bg-surface-light hover:bg-border-dark border border-border-dark text-white text-sm font-medium transition-colors flex items-center gap-2">
-                        <span className="material-symbols-outlined text-lg">edit</span> Editar
+                        <span className="material-symbols-outlined text-lg">edit</span> Edit
                     </button>
                     <button className="px-4 py-2 rounded-lg bg-primary hover:bg-primary-dark text-white text-sm font-bold shadow-lg shadow-primary/25 transition-all transform active:scale-95">
-                        Ver Contrato
+                        View Contract
                     </button>
                 </div>
             </div>
