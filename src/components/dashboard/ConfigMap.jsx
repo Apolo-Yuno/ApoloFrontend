@@ -27,7 +27,6 @@ const ConfigMap = () => {
                     <span className="material-symbols-outlined text-text-secondary">public</span>
                     Mapa de Configuración
                 </h3>
-                <button className="text-xs font-bold text-primary hover:text-white transition-colors">VER DETALLES</button>
             </div>
 
             <div className="relative w-full h-64 rounded-xl overflow-hidden bg-[#100b1a] border border-border-dark shadow-inner">
@@ -42,8 +41,11 @@ const ConfigMap = () => {
 
             <div className="flex flex-wrap gap-4 pt-2">
                 {countries.length > 0 ? countries.map(country => (
-                    <div key={country} className="flex items-center gap-2 bg-surface-light px-3 py-1.5 rounded-lg border border-border-dark animate-fade-in">
-                        <span className="text-lg">
+                    <div key={country} 
+                        className="flex items-center gap-2 bg-surface-light px-3 py-1.5 rounded-lg border border-border-dark animate-fade-in 
+                        hover:bg-purple-500 hover:scale-105 transition-all duration-200 cursor-pointer"
+                    >
+                    <span className="text-lg">
                             {country === 'MX' ? '🇲🇽' : country === 'CO' ? '🇨🇴' : '🏳️'}
                         </span>
                         <span className="text-sm font-medium">{country}</span>
