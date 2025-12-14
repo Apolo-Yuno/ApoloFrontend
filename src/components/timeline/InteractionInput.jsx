@@ -50,8 +50,11 @@ const InteractionInput = () => {
 
         // Aquí unimos texto + indicación de audio si existe
         // NOTA: Si tu backend espera Multipart real, asegúrate de ajustar handleIngest como vimos antes.
-        // Por ahora, enviamos el texto y simulamos que el audio va adjunto.
-        handleIngest(text, type);
+        if (audioFile) {
+            handleIngest(audioFile, 'CALL');
+        } else {
+            handleIngest(text, type);
+        }
 
         // Limpieza
         setText('');
@@ -100,7 +103,7 @@ const InteractionInput = () => {
             <form className="relative" onSubmit={handleSubmit}>
 
                 {/* Visualización de archivo cargado (Manual o Automático) */}
-                {type === 'AUDIO' && (
+                {type === 'CALL' && (
                     <div className="flex items-center gap-2 mb-2 animate-fade-in bg-black/20 p-2 rounded border border-white/5">
                         <input
                             type="file"
