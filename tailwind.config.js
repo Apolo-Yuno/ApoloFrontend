@@ -7,23 +7,24 @@ export default {
     theme: {
         extend: {
             colors: {
-                // Colores personalizados del diseño
+                // Colores personalizados del diseño (Yuno Light Theme)
                 primary: {
-                    DEFAULT: '#c084fc',
-                    dark: '#a855f7',
+                    DEFAULT: '#2563eb', // Blue-600
+                    dark: '#1d4ed8',    // Blue-700
                 },
                 background: {
-                    dark: '#0a0612',
+                    dark: '#f8fafc',    // Slate-50 (Light Background)
                 },
                 surface: {
-                    dark: '#1a1025',
-                    light: '#251832',
+                    dark: '#ffffff',    // White
+                    light: '#f1f5f9',   // Slate-100
                 },
                 border: {
-                    dark: '#2d1f3d',
+                    dark: '#e2e8f0',    // Slate-200
                 },
                 text: {
-                    secondary: '#9ca3af',
+                    secondary: '#64748b', // Slate-500
+                    primary: '#0f172a',   // Slate-900
                 },
             },
             fontFamily: {

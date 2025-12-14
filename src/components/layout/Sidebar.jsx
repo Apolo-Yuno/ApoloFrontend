@@ -8,14 +8,14 @@ const Sidebar = () => {
     const isCRM = location.pathname.startsWith('/crm');
 
     return (
-        <aside className="w-20 lg:w-64 bg-[#141118] border-r border-[#2f2839] flex flex-col justify-between shrink-0 transition-all duration-300 z-30 h-screen sticky top-0">
+        <aside className="w-20 lg:w-64 bg-background-dark border-r border-border-dark flex flex-col justify-between shrink-0 transition-all duration-300 z-30 h-screen sticky top-0">
             <div className="flex flex-col h-full">
                 {/* HEADERYUNO */}
-                <div className="h-16 flex items-center justify-center lg:justify-start lg:px-6 border-b border-[#2f2839]">
+                <div className="h-16 flex items-center justify-center lg:justify-start lg:px-6 border-b border-border-dark">
                     <div className="size-8 flex items-center justify-center text-primary bg-primary/10 rounded-lg">
                         <span className="material-symbols-outlined">hub</span>
                     </div>
-                    <span className="ml-3 font-bold text-lg hidden lg:block tracking-tight text-white">Yuno</span>
+                    <span className="ml-3 font-bold text-lg hidden lg:block tracking-tight text-text-primary">Yuno</span>
                 </div>
 
                 {/* NAVIGATION */}
@@ -30,7 +30,7 @@ const Sidebar = () => {
 
 
                     {/* SECCIÓN ESPECÍFICA (Solo visual por ahora, simulando la unificación) */}
-                    <div className="my-2 border-t border-[#2f2839]"></div>
+                    <div className="my-2 border-t border-border-dark"></div>
 
                     <div className="px-3 my-2 hidden lg:block text-[10px] font-bold text-text-secondary uppercase tracking-wider">
 
@@ -41,8 +41,8 @@ const Sidebar = () => {
                 </nav>
 
                 {/* FOOTER USER */}
-                <div className="p-4 border-t border-[#2f2839]">
-                    <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
+                <div className="p-4 border-t border-border-dark">
+                    <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-light transition-colors cursor-pointer">
                         <div className="hidden lg:block overflow-hidden">
 
                         </div>
@@ -59,7 +59,7 @@ const NavItem = ({ to, icon, label, end, disabled, active: forceActive }) => (
         end={end}
         className={({ isActive }) => `
             flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all group
-            ${(isActive || forceActive) && !disabled ? 'bg-primary/10 text-white shadow-[inset_3px_0_0_0_#9333ea]' : 'text-text-secondary hover:bg-white/5 hover:text-white'}
+            ${(isActive || forceActive) && !disabled ? 'bg-primary/10 text-text-primary shadow-[inset_3px_0_0_0_#2563eb]' : 'text-text-secondary hover:bg-surface-light hover:text-text-primary'}
             ${disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}
         `}
     >

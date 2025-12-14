@@ -23,8 +23,8 @@ const SmartSummary = () => {
                         <span className="material-symbols-outlined icon-filled">auto_awesome</span>
                     </div>
                     <div>
-                        <h3 className="text-lg font-bold text-white mb-2">Smart Summary</h3>
-                        <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                        <h3 className="text-lg font-bold text-text-primary mb-2">Smart Summary</h3>
+                        <p className="text-text-secondary leading-relaxed whitespace-pre-line">
                             {merchant?.summary || "No summary available yet."}
                         </p>
                     </div>
@@ -38,7 +38,7 @@ const SmartSummary = () => {
                                 <h4 className="text-xs font-bold text-text-secondary uppercase mb-2">Markets</h4>
                                 <div className="flex flex-wrap gap-2">
                                     {countries.map(c => (
-                                        <span key={c} className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs border border-blue-500/30">
+                                        <span key={c} className="px-2 py-1 bg-blue-500/20 text-blue-600 rounded text-xs border border-blue-200">
                                             {c}
                                         </span>
                                     ))}
@@ -51,7 +51,7 @@ const SmartSummary = () => {
                                 <h4 className="text-xs font-bold text-text-secondary uppercase mb-2">Payment Methods</h4>
                                 <div className="flex flex-wrap gap-2">
                                     {paymentMethods.map(pm => (
-                                        <span key={pm} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-xs border border-purple-500/30">
+                                        <span key={pm} className="px-2 py-1 bg-purple-500/20 text-purple-600 rounded text-xs border border-purple-200">
                                             {pm}
                                         </span>
                                     ))}
@@ -67,7 +67,7 @@ const SmartSummary = () => {
                         <h4 className="text-xs font-bold text-red-400 uppercase mb-1 flex items-center gap-1">
                             <span className="material-symbols-outlined text-sm">warning</span> Risk Alert
                         </h4>
-                        <p className="text-xs text-red-200">{riskNotes}</p>
+                        <p className="text-xs text-red-600">{riskNotes}</p>
                     </div>
                 )}
             </div>

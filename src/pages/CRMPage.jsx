@@ -10,14 +10,14 @@ import {
 
 const CRMPage = () => {
     return (
-        <div className="flex h-screen bg-[#141118] font-display text-white overflow-hidden">
+        <div className="flex h-screen bg-background-dark font-display text-text-primary overflow-hidden">
             <Sidebar />
 
-            <main className="flex-1 flex flex-col h-full overflow-hidden relative bg-[#141118]">
+            <main className="flex-1 flex flex-col h-full overflow-hidden relative bg-background-dark">
                 <CRMHeader />
 
                 {/* CONTENIDO SCROLLABLE */}
-                <div className="flex-1 overflow-y-auto bg-[#141118] p-6">
+                <div className="flex-1 overflow-y-auto bg-background-dark p-6">
                     <div className="max-w-[1600px] mx-auto w-full grid grid-cols-1 xl:grid-cols-12 gap-6 pb-10">
 
                         {/* COLUMNA 1: Detalles de la Cuenta */}

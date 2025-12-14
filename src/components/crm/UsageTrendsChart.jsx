@@ -19,10 +19,10 @@ const data = [
 const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-[#1a1620] border border-[#2f2839] p-2 rounded shadow-xl">
-                <p className="text-white text-xs font-bold mb-1">{`Semana: ${label}`}</p>
-                <p className="text-[#7c2bee] text-xs">{`API: ${payload[0].value.toLocaleString()}`}</p>
-                <p className="text-[#453b54] text-xs">{`Sesiones: ${payload[1].value.toLocaleString()}`}</p>
+            <div className="bg-white border border-border-dark p-2 rounded shadow-xl">
+                <p className="text-text-primary text-xs font-bold mb-1">{`Semana: ${label}`}</p>
+                <p className="text-primary text-xs">{`API: ${payload[0].value.toLocaleString()}`}</p>
+                <p className="text-blue-400 text-xs">{`Sesiones: ${payload[1].value.toLocaleString()}`}</p>
                 <p className="text-red-400 text-xs">{`Errores: ${payload[2].value}`}</p>
             </div>
         );
@@ -35,12 +35,12 @@ const UsageTrendsChart = () => {
         <div className="h-full w-full min-h-[200px]">
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={data} barGap={0}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#2f2839" />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                     <XAxis
                         dataKey="name"
                         axisLine={false}
                         tickLine={false}
-                        tick={{ fill: '#a89db9', fontSize: 10 }}
+                        tick={{ fill: '#64748b', fontSize: 10 }}
                         interval={1}
                     />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: '#ffffff1a' }} />
@@ -53,7 +53,7 @@ const UsageTrendsChart = () => {
                     <Bar
                         dataKey="api"
                         name="Vol. API"
-                        fill="#7c2bee"
+                        fill="#2563eb"
                         radius={[2, 2, 0, 0]}
                         animationDuration={1500}
                         animationEasing="ease-out"
@@ -64,7 +64,7 @@ const UsageTrendsChart = () => {
                     <Bar
                         dataKey="sessions"
                         name="Sesiones"
-                        fill="#453b54"
+                        fill="#60a5fa"
                         radius={[2, 2, 0, 0]}
                         animationDuration={1500}
                         animationBegin={200}

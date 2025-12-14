@@ -3,17 +3,17 @@ import AnimatedNumber from '../crm/AnimatedNumber';
 
 // --- SIDEBAR (Se mantiene igual, necesaria para el layout) ---
 export const CRMSidebar = () => (
-    <aside className="w-64 bg-[#141118] border-r border-[#2f2839] flex-shrink-0 flex flex-col h-full overflow-y-auto hidden md:flex">
+    <aside className="w-64 bg-background-dark border-r border-border-dark flex-shrink-0 flex flex-col h-full overflow-y-auto hidden md:flex">
         <div className="p-6">
             <div className="flex items-center gap-3 mb-8">
                 <div className="bg-primary/20 p-2 rounded-lg border border-primary/20">
                     <span className="material-symbols-outlined text-primary">analytics</span>
                 </div>
-                <h1 className="text-xl font-bold tracking-tight text-white">Nexus Data</h1>
+                <h1 className="text-xl font-bold tracking-tight text-text-primary">Nexus Data</h1>
             </div>
             <nav className="flex flex-col gap-2">
                 {['Overview', 'Accounts', 'Sales Performance', 'Support Tickets', 'Predictive AI'].map((item, i) => (
-                    <a key={item} href="#" className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${i === 1 ? 'bg-surface-dark text-white border border-primary/10' : 'text-text-secondary hover:bg-surface-dark hover:text-white'}`}>
+                    <a key={item} href="#" className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${i === 1 ? 'bg-surface-dark text-text-primary border border-primary/10' : 'text-text-secondary hover:bg-surface-dark hover:text-text-primary'}`}>
                         <span className="material-symbols-outlined text-xl">{['dashboard', 'corporate_fare', 'trending_up', 'confirmation_number', 'query_stats'][i]}</span>
                         <span className="font-medium text-sm">{item}</span>
                     </a>
@@ -25,7 +25,7 @@ export const CRMSidebar = () => (
 
 // --- HEADER ACTUALIZADO CON ANIMACIONES ---
 export const CRMHeader = () => (
-    <header className="bg-[#141118] border-b border-[#2f2839] px-6 pt-6 pb-0 flex-shrink-0 z-10">
+    <header className="bg-background-dark border-b border-border-dark px-6 pt-6 pb-0 flex-shrink-0 z-10">
         <div className="max-w-[1600px] mx-auto w-full pb-6 flex flex-col gap-6">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-text-secondary text-xs font-medium font-mono">
@@ -37,11 +37,11 @@ export const CRMHeader = () => (
             {/* Info Principal */}
             <div className="flex flex-col xl:flex-row gap-6 justify-between items-start xl:items-center">
                 <div className="flex gap-4 items-center">
-                    <div className="size-14 rounded bg-[#25202e] flex items-center justify-center text-primary border border-primary/20">
+                    <div className="size-14 rounded bg-surface-light flex items-center justify-center text-primary border border-primary/20">
                         <span className="material-symbols-outlined text-3xl">domain</span>
                     </div>
                     <div>
-                        <h1 className="text-2xl font-bold tracking-tight text-white mb-0.5">Zoop</h1>
+                        <h1 className="text-2xl font-bold tracking-tight text-text-primary mb-0.5">Zoop</h1>
                         <div className="flex items-center gap-4 text-xs text-text-secondary font-mono">
                             <span className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">key</span> ID: 8492-AX</span>
                             <span className="text-green-400 font-bold">| ACTIVE</span>
@@ -50,7 +50,7 @@ export const CRMHeader = () => (
                 </div>
 
                 {/* Stats Header (Ahora usa el StatBox animado) */}
-                <div className="flex items-center divide-x divide-[#2f2839] bg-surface-dark/30 rounded-lg border border-[#2f2839]">
+                <div className="flex items-center divide-x divide-border-dark bg-surface-dark/30 rounded-lg border border-border-dark">
                     <StatBox label="Health Score" value="92" subValue="2%" subColor="text-green-400" icon="arrow_upward" />
                     <StatBox label="ARR" value="$150,000" />
                     <StatBox label="Renewal" value="Nov 20" subValue="35 Days" subColor="text-yellow-500" />
@@ -65,7 +65,7 @@ const StatBox = ({ label, value, subValue, subColor, icon }) => (
     <div className="px-6 py-2">
         <p className="text-[10px] text-text-secondary uppercase tracking-wider mb-0.5">{label}</p>
         <div className="flex items-center gap-2">
-            <span className="text-xl font-bold text-white">
+            <span className="text-xl font-bold text-text-primary">
                 {/* CASO 1: Es Dinero ($) -> Animamos con prefijo */}
                 {value.toString().includes('$') ? (
                     <AnimatedNumber value={value} prefix="$" />
