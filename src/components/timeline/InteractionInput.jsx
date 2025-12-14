@@ -22,12 +22,11 @@ const InteractionInput = () => {
             const file = new File([blob], "demoAudio.mp3", { type: "audio/mpeg" });
 
             setAudioFile(file);
-            setType('AUDIO');
-            setText("📞 Llamada entrante detectada (Webhook). Procesando audio...");
+            setType('CALL');
 
-            // OPCIONAL: Si quieres que se envíe solo al backend descomenta esto:
-            // handleIngest("Simulación de llamada", 'AUDIO'); 
 
+            // Enviamos el audio simulado al contexto
+            handleIngest(file, 'CALL');
         } catch (error) {
             console.error("Error en simulación:", error);
             alert("Error: Revisa que 'demoAudio.mp3' esté en la carpeta public y tenga ese nombre exacto.");
@@ -73,11 +72,11 @@ const InteractionInput = () => {
                     onChange={(e) => setType(e.target.value)}
                     className="bg-surface-dark border border-border-dark rounded-lg text-xs text-text-secondary py-1.5 px-2 focus:ring-primary focus:border-primary outline-none"
                 >
-                    <option value="NOTE">📝 Nota Rápida</option>
+                    <option value="NOTE">📝 Slack</option>
                     <option value="EMAIL">📧 Correo</option>
-                    <option value="AUDIO">🎙️ Audio / Llamada</option>
+                    <option value="CALL">🎙️ Audio</option>
                     <option value="CONTRACT">📄 Contrato</option>
-                    <option value="SLACK">💬 Slack</option>
+
                 </select>
 
                 {/* 2. EL BOTÓN DE SIMULACIÓN (Webhook) */}
