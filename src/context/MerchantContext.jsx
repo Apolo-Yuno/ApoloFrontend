@@ -42,6 +42,7 @@ export const MerchantProvider = ({ children }) => {
             // Llamada real al backend
             const updatedMerchant = await ingestText(text, type, merchant.name);
 
+            if (!updatedMerchant) throw new Error("Respuesta inválida del servidor");
 
             setMerchant(prev => ({
                 ...prev,
@@ -66,6 +67,15 @@ export const MerchantProvider = ({ children }) => {
 
         } catch (error) {
             console.error("Error conectando con IA", error);
+            // Feedback visual de error
+            setHistory(prev => [{
+                author: 'Sistema',
+                role: 'Error',
+                timestamp: 'Ahora',
+                content: `Error al procesar la solicitud: ${error.message}. Intenta con un texto más corto.`,
+                type: 'SYSTEM', // Usamos SYSTEM para que se vea diferente, o podrías crear un tipo ERROR
+                sourceType: 'NOTE'
+            }, ...prev]);
         } finally {
             setLoading(false);
         }

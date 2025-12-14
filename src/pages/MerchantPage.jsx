@@ -5,20 +5,7 @@ import MerchantHeader from '../components/dashboard/MerchantHeader';
 import SmartSummary from '../components/dashboard/SmartSummary';
 import ConfigMap from '../components/dashboard/ConfigMap';
 import StatsCard from '../components/dashboard/StatsCard';
-// Puedes crear un Sidebar.jsx simple o usar este placeholder
-const Sidebar = () => (
-    <aside className="w-20 lg:w-64 bg-surface-dark border-r border-border-dark flex flex-col justify-between shrink-0 transition-all duration-300 z-30">
-        <div>
-            <div className="h-16 flex items-center justify-center lg:justify-start lg:px-6 border-b border-border-dark">
-                <div className="size-8 flex items-center justify-center text-primary bg-primary/10 rounded-lg">
-                    <span className="material-symbols-outlined">hub</span>
-                </div>
-                <span className="ml-3 font-bold text-lg hidden lg:block tracking-tight text-white">Yuno</span>
-            </div>
-        </div>
-        {/* ... Resto de items del menú ... */}
-    </aside>
-);
+import Sidebar from '../components/layout/Sidebar';
 
 const MerchantPage = () => {
     return (
