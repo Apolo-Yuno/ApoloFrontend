@@ -10,7 +10,6 @@ const COUNTRY_DATA = {
     'CO': { lat: 4.570868, lng: -74.297333, name: "Colombia", icon: ColombiaImg },
 };
 
-
 const ConfigMap = () => {
     const { merchant } = useMerchant();
     const countries = merchant.context?.countries?.length > 0 ? merchant.context.countries : ['MX', 'CO'];
