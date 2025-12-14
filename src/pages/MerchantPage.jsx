@@ -13,7 +13,7 @@ const Sidebar = () => (
                 <div className="size-8 flex items-center justify-center text-primary bg-primary/10 rounded-lg">
                     <span className="material-symbols-outlined">hub</span>
                 </div>
-                <span className="ml-3 font-bold text-lg hidden lg:block tracking-tight text-white">ApoloBot</span>
+                <span className="ml-3 font-bold text-lg hidden lg:block tracking-tight text-white">Yuno</span>
             </div>
         </div>
         {/* ... Resto de items del menú ... */}

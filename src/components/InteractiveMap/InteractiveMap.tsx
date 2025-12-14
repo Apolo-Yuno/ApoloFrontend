@@ -5,7 +5,6 @@ const containerStyle = {
   height: '100%'
 };
 
-
 interface Location {
   lat: number;
   lng: number;
