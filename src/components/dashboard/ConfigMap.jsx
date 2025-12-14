@@ -27,7 +27,7 @@ const ConfigMap = () => {
                     <span className="material-symbols-outlined text-text-secondary">public</span>
                     Mapa de Configuración
                 </h3>
-                <button className="text-xs font-bold text-primary hover:text-white transition-colors">VER DETALLES</button>
+               
             </div>
 
             <div className="relative w-full h-64 rounded-xl overflow-hidden bg-[#100b1a] border border-border-dark shadow-inner">
